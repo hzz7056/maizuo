@@ -1,0 +1,112 @@
+#home{
+	width: 100%;
+}
+
+#home .banner{
+	width: 100%;
+}
+
+.swiper-slide img{
+	width: 100%;
+}
+
+#home .home-main{
+	width: 100%;
+}
+
+.home-main .item{
+	margin: 16px 16px 0 16px;
+	box-shadow: 0.5px 0.5px 1px #a8a8a8;
+    cursor: pointer;
+}
+
+.home-main .item img{
+	width: 100%;
+}
+
+.home-main .item .item-con{
+	background: #fff;
+	padding: 10px 0 6px 10px;
+	display: flex;
+}
+
+.home-main .item .item-con .left{
+	flex: 1;
+}
+
+.home-main .item .item-con .left .title{
+	font-size: 10px;
+	color: #333;
+}
+
+.home-main .item .item-con .left .pop span{
+	font-size: 10px;
+	color: #9a9a9a;
+}
+
+.home-main .item .item-con .left .pop .count{
+	margin-left: 6px;
+}
+
+.home-main .item .item-con .grade{
+	font-size: 18px;
+	color: #f78360;
+	text-align: center;
+	padding: 6px 14px;
+}
+
+.home-main .more{
+	padding: 20px 20px 20px 20px;
+}
+
+.home-main .more .morebtn{
+	font-size: 10px;
+	display: block;
+	text-align: center;
+	width: 160px;
+	height: 30px;
+	border-radius: 50px;
+	background: #ebebeb;
+	border:1px solid #aaa;
+	margin: 0 auto;
+	color: #616161;
+}
+
+.home-main .line-box{
+	margin-top: 10px;
+	margin-bottom: 44px;
+	width: 100%;
+	position: relative;
+	border-bottom: 1px solid #a8a8a8;
+}
+
+.home-main .line-box .soon{
+	width: 66px;
+	height: 20px;
+	margin: 0 auto;
+	line-height: 20px;
+	margin-bottom: -10px;
+	font-size: 10px;
+	background:#a8a8a8 ;
+	color: #eee;
+	text-align: center;
+	border-radius: 4px;
+}
+
+
+.home-main .item .soon-con{
+	display: flex;
+	padding: 10px 20px 10px 10px;
+	background: #fff;
+}
+
+.home-main .item .soon-con div{
+	flex: 1;
+	font-size: 10px;
+	color: #333;
+}
+
+.home-main .item .soon-con .date{
+	text-align: right;
+	color: RGB(245, 162, 125);
+}

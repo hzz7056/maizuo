@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import {BrowserRouter,Route} from 'react-router-dom'
 
 import Home from './pages/Home.js'
+import HomelistDetails from './pages/HomelistDetails.js'
+
 import Movies from './pages/Movies.js'
 import Cinema from './pages/Cinema.js'
 import Shop from './pages/Shop.js'
@@ -38,12 +40,15 @@ export default class App extends Component{
 			<Route path="/" render={({history,location})=>{
 				return <SlideBar history={history}
 								 show={this.state.showBar}
-								 pathname={location.pathname} />
+								 pathname={location.pathname} 
+								 hideHandle={this.menuHandle.bind(this)}/>
 			}}/>
 			
 			<SlideBar />
 				
 			<Route path="/" exact component={Home} />
+			<Route path="/list-details" component={HomelistDetails} />
+			
 			<Route path="/movies" component={Movies} />
 			<Route path="/cinema" component={Cinema} />
 			<Route path="/shop" component={Shop} />
@@ -59,7 +64,8 @@ export default class App extends Component{
 	}
 	
 	menuHandle(headerTitle){
-		console.log(headerTitle)
+		console.log(headerTitle);
+		//控制列表显示/隐藏
 		this.setState({showBar:!this.state.showBar})
 		if (headerTitle) {
 			this.setState({headerTitle})

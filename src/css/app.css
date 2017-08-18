@@ -4,13 +4,16 @@ html,body,#app{
 	touch-action: none;
 }
 
+body{
+	background-color: #ebebeb;
+}
+
 .page{
 	position: absolute;
 	top: 48px;
 	bottom: 0;
 	width: 100%;
 	left: 0;
-	background: cornflowerblue;
 }
 
 .app-header{
@@ -65,6 +68,27 @@ html,body,#app{
 	border-top: 1px solid #222;
     box-shadow: 0 1px 1px #363636 inset;
     z-index: 99;
+    transition: 0.5s;
+}
+
+.cover{
+	position: absolute;
+	left: 0;
+	top: 48px;
+	right: 0;
+	bottom:0;
+	background: rgba(0,0,0,0.5);
+	z-index: 99;
+	transition: 0.5s;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }
 
 .slidebar li{
@@ -83,6 +107,7 @@ html,body,#app{
 	top: -1px;
 	border-bottom: 1px solid #333;
 	transform: scaleY(0.5);
+	
 }
 
 .slidebar li a{
