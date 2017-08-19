@@ -2,8 +2,6 @@ import React,{Component} from 'react'
 import {BrowserRouter,Route} from 'react-router-dom'
 
 import Home from './pages/Home.js'
-import HomelistDetails from './pages/HomelistDetails.js'
-
 import Movies from './pages/Movies.js'
 import Cinema from './pages/Cinema.js'
 import Shop from './pages/Shop.js'
@@ -13,8 +11,9 @@ import City from './pages/City.js'
 
 import AppHeader from './views/common/AppHeader.js'
 import SlideBar from './views/common/SlideBar.js'
-
-
+import HomelistDetails from './views/Home/HomelistDetails.js'
+import NowPlay from './views/Movies/nowPlay.js'
+import SoonPlay from './views/Movies/soonPlay.js'
 
 import './css/app.css'
 
@@ -27,8 +26,6 @@ export default class App extends Component{
 			headerTitle:'卖座电影'
 		}
 	}
-	
-	
 	
 	
 	render(){
@@ -50,6 +47,9 @@ export default class App extends Component{
 			<Route path="/list-details" component={HomelistDetails} />
 			
 			<Route path="/movies" component={Movies} />
+			<Route path="/now-play" component={NowPlay} />
+			<Route path="/soon-play" component={SoonPlay} />
+			
 			<Route path="/cinema" component={Cinema} />
 			<Route path="/shop" component={Shop} />
 			<Route path="/me" component={Me} />

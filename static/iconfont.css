@@ -19,5 +19,7 @@
 
 .icon-arrow-right:before { content: "\e611"; }
 
+.icon-arrow2-right:after { content: "\e611";font-size: 8px; color: #ddd;}
+
 .icon-arrow-down:after { content: "\e600"; }
 

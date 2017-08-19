@@ -7,9 +7,13 @@ const HomelistSoonApi='/v4/api/film/coming-soon?__t=1503045106363&page=1&count=3
 
 const HomelistDetailsApi='/v4/api/film/3828?__t=1503056599058';
 
+//电影
+const MovieslistApi='/v4/api/film/now-playing?page=1&count=7';
+
 export default {
 	HomeBannerApi,
 	HomeListApi,
 	HomelistSoonApi,
-	HomelistDetailsApi
+	HomelistDetailsApi,
+	MovieslistApi
 }

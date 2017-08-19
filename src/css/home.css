@@ -110,3 +110,52 @@
 	text-align: right;
 	color: RGB(245, 162, 125);
 }
+
+/*详情页*/
+#listdetail{
+	width: 100%;
+}
+
+#listdetail .detail-item{
+	width: 100%;
+}
+
+#listdetail .detail-item img{
+	width: 100%;
+}
+
+.detail-item .brief{
+	margin: 20px 0;
+	border-left: 16px solid RGB(228, 200, 156);
+}
+
+.detail-item .brief .brief-t{
+	display: inline-block;
+	margin-left: 4px;
+}
+
+.detail-item .item-con .info{
+	margin:0 20px;
+}
+
+.detail-item .item-con .info div{
+	font-size: 14px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+#listdetail .pay{
+	width: 100%;
+	padding: 20px 0;
+}
+
+#listdetail .pay .pay-btn{
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	width: 42%;
+	height: 36px;
+	border-radius: 50px;
+	background: #fe8233;
+	color: #fff;
+}

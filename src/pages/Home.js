@@ -1,5 +1,4 @@
-import React,{Component} from 'react'
-
+import React,{Component} from 'react';
 import HomeServices from '../services/HomeServices.js'
 
 import '../css/home.css'
@@ -99,16 +98,24 @@ export default class Home extends Component{
 	
 	componentWillMount(){
 		//请求轮播图
+		setTimeout(()=>{
 		HomeServices.getHomeBannerData()
 		.then((res)=>{
 			console.log(res);
-			
-			if (res) {
-			this.setState({
+			if (res.imgPath) {
+			console.log(res)
+			//因为需要设置loop,而dom被js绑定了	
+			//数据需要添加第一张和最后一张
+			//将最后一张添加到第一的位置
+			res.splice(0,0,res[res.length-1]);
+			//将第一张添加到最后一个位置
+			res.push(res[1]);
+				this.setState({
 				bannerData:res
 				})
-			}
-			
+			bannerSwiper.update();
+			bannerSwiper.slideTo(1,0);
+			}		
 		})
 		
 		//请求上映电影
@@ -117,7 +124,7 @@ export default class Home extends Component{
 			if (res) {
 			this.setState({
 				listData:res
-			 })
+			})
 			}
 		})
 		
@@ -133,18 +140,17 @@ export default class Home extends Component{
 			
 		})
 		
-		
-		
-		
+		},600)
 	}
+	
 	
 	componentDidMount(){
 		console.log(this.state.bannerData.length)
-//		bannerSwiper=new Swiper(this.refs.banner,{
-//			
-//		})
+		bannerSwiper = new Swiper(this.refs.banner, {
+			loop:true
+		});
 	}
-	
+
 	goDeatail(){
 		this.state.history.push('/list-details')
 	}

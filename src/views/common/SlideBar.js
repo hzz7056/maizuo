@@ -45,13 +45,13 @@ export default class SlideBar extends Component{
 	}
 	
 	goPage(item){
-		console.log(this.props.history)
+		console.log(this.props.history);
 		this.props.history.push(item.path);
-		
+		this.props.hideHandle(item.header);
 	}
 	
 	hide(){
-		this.props.menuHandle();
+		this.props.hideHandle();
 	}
 	
 }
