@@ -1,0 +1,127 @@
+#shop{
+	width: 100%;
+	background: #fff;
+}
+
+.swiper-pagination-bullet-active{
+	background-color: #000;
+}
+
+.line{
+	height: 8px;
+    background: #f2f2f2;
+}
+
+#shop .shop-list{
+	width: 100%;
+	background: #fff;
+}
+
+#shop .shop-list .list-nav{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 24px 6px 10px 6px;
+}
+
+#shop .shop-list .list-nav li{
+	width: 25%;
+	margin-bottom: 20px;
+}
+
+#shop .shop-list .list-nav li .image{
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+#shop .shop-list .list-nav li .image img{
+	width: 100%;
+}
+
+#shop .shop-list .list-nav li .text{
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 12px;
+	margin-top: 6px;
+}
+
+.active-content{
+	
+}
+
+.active-content .activity1{
+	display: flex;
+	padding: 10px 10px;
+	background: #fff;
+	
+}
+
+.active-content .activity1 .item{
+	flex: 1;
+	margin-right: 4px;
+}
+
+.active-content .activity1 .item img{
+	width: 100%;
+}
+
+.active-content .active-title{
+	width: 100%;
+}
+
+.active-content .active-title .item{
+	padding: 10px;
+	background: #fff;
+	margin-top: 6px;
+}
+
+.active-content .active-title .item img{
+	width: 100%;
+}
+
+.active-content .active-title .item .item-m{
+	width: 100%;
+	overflow-x: scroll;
+	white-space: nowrap;
+	overflow-y: hidden;
+	position: relative;
+}
+
+
+.active-title .item .item-m .item-con{
+	width: 24%;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 20px;	
+	height: 100%;
+	
+}
+
+.active-title .item .item-m .item-con .image{
+	width: 80px;
+}
+
+.active-title .item .item-m .item-con .proname{
+	white-space: nowrap;
+	font-size: 12px;
+	margin-top: 12px;
+}
+
+.active-title .item .item-m .item-con .price{
+	font-size: 12px;
+	color:#ff6640;
+}
+
+.active-title .item .item-m .more{
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	color: #ddd;
+	font-size: 18px;
+	position: absolute;
+	top: 20%;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+}
+

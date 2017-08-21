@@ -43,7 +43,7 @@ export default class App extends Component{
 			
 			<SlideBar />
 				
-			<Route path="/" exact component={Home} />
+			<Route path="/" exact component={Shop} />
 			<Route path="/list-details" component={HomelistDetails} />
 			
 			<Route path="/movies" component={Movies} />
