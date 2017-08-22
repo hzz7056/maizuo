@@ -16,7 +16,8 @@ export default class Shop extends Component{
 		this.state={
 			listData:[],
 			activesData:[],
-			activesTitleData:[]
+			activesTitleData:[],
+			prolistData:[]
 		}
 	}
 	
@@ -70,7 +71,7 @@ export default class Shop extends Component{
 					<div class="active-title">
 						{
 							this.state.activesTitleData.map((item,index)=>{
-								return <div class="item" key={index}>
+							return <div class="item" key={index}>
 											<img src={item.imageSrc} />
 											
 											<div class="item-m">
@@ -79,7 +80,7 @@ export default class Shop extends Component{
 													return 	<div class="item-con" key={index}>
 																<div class="image">
 																<img src={data.image} />
-																</div>
+															</div>
 																
 																<div class="proname">{data.name}</div>
 																<div class="price">¥{data.price}</div>
@@ -97,6 +98,42 @@ export default class Shop extends Component{
 							
 							
 						}
+					</div>
+				
+				</div>
+				
+				
+				<div class="product-main">
+				<div class="pro-title">-&nbsp;好货精选&nbsp;-</div>
+					<div class="product-con">
+							
+							{
+							  this.state.prolistData.map((item,index)=>{
+							  	return <div class="item even" key={index}>
+							  			{
+							  				item.skuList.map((data,index)=>{
+							  					return  <div class="item-main"  key={index}>
+							  						<div class="image">
+							  							<img src={data.image}/>
+							  							</div>
+							  							
+							  							<div class="proname">{item.masterName}</div>
+							  								<div class="pro-price">
+							  								<span class="price">¥{data.price}</span>
+							  								<span class="sellcount">已售{item.displaySalesCount}</span>
+							  							</div>
+							  						</div>
+							  				})
+							  			
+							  			}
+							  			
+							  			
+							  		</div>
+							  })
+							
+							}
+						
+					
 					</div>
 				
 				</div>
@@ -130,6 +167,14 @@ export default class Shop extends Component{
 			})
 		})
 		
+		ShopServices.getShopProductData()
+		.then((res)=>{
+			console.log(res);
+			this.setState({
+				prolistData:res
+			})
+			
+		})
 		
 	}
 	

@@ -1,0 +1,81 @@
+#me{
+	width: 100%;
+	background-color: #f6f6f6;
+	box-sizing: border-box;
+}
+
+.login-content{	
+	box-sizing: border-box;
+}
+
+
+.login-content form{
+	padding: 0px 31px 0px 31px;
+	box-sizing: border-box;
+	
+}
+
+.login-content form .uname{
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 30px;	
+	
+}
+
+
+.login-content form .uname input{
+	width: 100%;
+	border: 0;
+	display: block;
+	height: 30px;
+	padding:6px 12px;
+	box-sizing: border-box;
+	background-color: #f6f6f6;
+	outline: none;
+}
+
+.login-content form .uname .input-bo{
+	position: absolute;
+    bottom: 0;
+    height: 12px;
+    width: 100%;
+    border: solid #c4c4c4;
+    border-width: 0 1px 1px 1px;
+    box-sizing: border-box;
+}
+
+.login-content form .uname .sendverfic{
+	position: absolute;
+	bottom: 7px;
+	right: 5px;
+	background: #29a097;
+	display: block;
+	width: 94px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	text-align: center;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.login-content form .login-bg{
+	margin: 50px 30px;
+	text-align: center;
+}
+
+.login-content form .login-bg .login{
+	width: 150px;
+	height: 40px;
+	border-radius: 50px;
+	background: #fe8233;
+	color: #fff;
+}
+
+.login-content form .toast{
+	font-size: 12px;
+	color: #fe8233;
+	margin-left: 8px;
+	height: 12px;
+	line-height: 12px;
+}

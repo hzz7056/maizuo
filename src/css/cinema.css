@@ -1,0 +1,26 @@
+#cinema{
+	width: 100%;
+}
+
+#cinema .cinema-content{
+	width: 100%;
+}
+
+#cinema .cinema-content .city-item{
+	
+}
+
+#cinema .cinema-content .city-item .city-title{
+	padding-left: 16px;
+	line-height:40px;
+	font-size: 14px;
+	color: #636363;;
+	background: #e1e1e1;
+	border-bottom: 1px solid #fff;
+}
+
+#cinema .cinema-content .city-item .hide{
+	background: #fff;
+	padding:10px 16px;
+}
+

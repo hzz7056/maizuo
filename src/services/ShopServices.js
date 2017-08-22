@@ -49,8 +49,8 @@ function getShopActiveTitleData() {
 		.then((response)=>{
 			console.log(response.data.data);
 			var newArr=[];
-			if(response.data.data.length >=6){
-				newArr=response.data.data.splice(12,6);
+			if(response.data.data.length >=7){
+				newArr=response.data.data.splice(12,7);
 			}
 			resolve(newArr);
 		})
@@ -63,9 +63,24 @@ function getShopActiveTitleData() {
 	
 }
 
+function getShopProductData () {
+	return new Promise((resolve,reject)=>{
+		axios.get(API.ShopProductApi)
+		.then((response)=>{
+			console.log(response.data.data.list);
+			resolve(response.data.data.list);
+		})
+		
+		.catch((error)=>{
+			console.log(error);
+		})
+	})
+}
+
 
 export default{
 	getShoplistData,
 	getShopActiveData,
-	getShopActiveTitleData
+	getShopActiveTitleData,
+	getShopProductData
 }

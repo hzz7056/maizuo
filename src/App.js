@@ -43,7 +43,7 @@ export default class App extends Component{
 			
 			<SlideBar />
 				
-			<Route path="/" exact component={Shop} />
+			<Route path="/" exact component={Me} />
 			<Route path="/list-details" component={HomelistDetails} />
 			
 			<Route path="/movies" component={Movies} />
@@ -64,7 +64,6 @@ export default class App extends Component{
 	}
 	
 	menuHandle(headerTitle){
-		console.log(headerTitle);
 		//控制列表显示/隐藏
 		this.setState({showBar:!this.state.showBar})
 		if (headerTitle) {
