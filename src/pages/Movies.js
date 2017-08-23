@@ -46,7 +46,7 @@ export default class Movies extends Component{
 									</div>
 										
 										<div class="content">
-											<div class="title"><span class="title-name">{item.name}</span>  <span class="grade iconfont icon-arrow2-right">{item.grade}</span></div>
+											<div class="title"><span class="title-name">{item.name}</span>  <span class="grade">{item.grade} <i class="iconfont icon-arrow2-right"></i></span></div>
 											<div class="dec"><span>{item.intro}</span></div>
 											<div class="count">
 												<span class="cinema">{item.cinemaCount}家影院上映</span>

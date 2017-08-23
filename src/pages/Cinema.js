@@ -8,7 +8,8 @@ export default class Cinema extends Component{
 	constructor(){
 		super();
 		this.state={
-			cityData:['福田区','龙岗区','宝安区','坪山新区','南山区','光明新区','龙华新区','罗湖区','盐田区']
+			cityData:[],
+			show:false
 		}
 	}
 	
@@ -18,12 +19,36 @@ export default class Cinema extends Component{
 			<div class="cinema-content">
 				{
 				  this.state.cityData.map((item,index)=>{
-				  	return <div class="city-item" key={index} onClick={this.Action.bind(this,index)}> 
-				  				<div class="city-title">{item}</div>
+				  	
+				  	var class1 = index !== 0 ? 'active' : '';
+				  	
+				  	console.log(class1)
+				  	
+				  	return <div class="city-item" key={index}> 
+				  				<div class="city-title" onClick={this.Action.bind(this,index)}>{item.name}</div>
 				  				
-				  				<div class="hide">
-				  					<div class="title">深圳中影ul城市影院万荟城店</div>
-				  				</div>
+				  				<div className="hide-box" class={class1}>
+				  				{
+				  				  item.list.map((data,index)=>{
+				  				  	return <div class="content" key={index}>
+				  				  			 <div class="left">
+				  								<div class="title"><span class="name">{data.name}</span>  <span class="zuo">座</span> <span class="tong">通</span></div>
+				  								<div class="activity">
+				  									<span class="food">{data.food}</span>
+				  									<span class="actives">{data.labels}</span>
+				  								  </div>
+				  								<div class="address">{data.address}</div>
+				  								<div class="dance">距离未知</div>
+				  							 </div>
+				  							 
+				  							 	<div class="right">
+				  							 		<i class="iconfont icon-arrow2-right"></i>
+				  							 	</div>
+				  							</div>
+				  				  })
+				  					
+				  				}
+				  			 </div>		
 				  			</div>
 				  })
 				}
@@ -35,7 +60,11 @@ export default class Cinema extends Component{
 	componentWillMount(){
 		CinemaServices.getCinemalistData()
 		.then((res)=>{
-			console.log(res);
+			console.log('res',res);
+			this.setState({
+				cityData:res
+			})
+			
 		})
 		
 		
@@ -44,6 +73,9 @@ export default class Cinema extends Component{
 	
 	Action(index){
 		console.log(index)
+		this.setState({
+			show:!this.state.show
+		})
 	}
 	
 }

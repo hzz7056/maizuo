@@ -31,7 +31,7 @@ function getHomeBannerData() {
 //请求上映电影
 function getHomelistData () {
 	return new Promise((resolve,reject)=>{
-		axios.get(`${API.HomeListApi}?__t=${new Date().getTime()}`)
+		axios.get(`${API.HomeListApi}?__t=${new Date().getTime()}&page=1&count=5`)
 		.then((response)=>{
 			console.log(response);
 			if(response.data.data.films){
@@ -61,7 +61,7 @@ function getHomelistData () {
 //请求即将上映电影
 function getHomelistSoonData () {
 	return new Promise((resolve,reject)=>{
-		axios.get(`${API.HomelistSoonApi}?__t=${new Date().getTime()}`)
+		axios.get(`${API.HomelistSoonApi}?__t=${new Date().getTime()}&page=1&count=3`)
 		.then((response)=>{
 			
 			resolve(response.data.data.films);

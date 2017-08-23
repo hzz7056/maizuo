@@ -101,8 +101,7 @@ export default class Home extends Component{
 		setTimeout(()=>{
 		HomeServices.getHomeBannerData()
 		.then((res)=>{
-			console.log(res);
-			if (res.imgPath) {
+			
 			console.log(res)
 			//因为需要设置loop,而dom被js绑定了	
 			//数据需要添加第一张和最后一张
@@ -115,7 +114,7 @@ export default class Home extends Component{
 				})
 			bannerSwiper.update();
 			bannerSwiper.slideTo(1,0);
-			}		
+					
 		})
 		
 		//请求上映电影

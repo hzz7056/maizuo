@@ -75,6 +75,12 @@
 	float: right;
 }
 
+.item-main .content .title .grade .icon-arrow2-right:after{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	font-size: 8px;
+}
 
 .item-main .content .dec{
 	font-size: 10px;

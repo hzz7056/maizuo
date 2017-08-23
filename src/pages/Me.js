@@ -5,9 +5,10 @@ import '../css/me.css'
 let timer=null;
 
 export default class Me extends Component{
-	constructor(){
+	constructor({history}){
 		super();
 		this.state={
+			history,
 			userVal:'',
 			pwdVal:'',
 			toast:'',
@@ -18,7 +19,7 @@ export default class Me extends Component{
 	}
 	
 	render(){
-			var btn=this.state.flag ? <span class="sendverfic" onClick={this.sendAction.bind(this)}>{this.state.verficVal}</span> : null;
+			var btn=this.state.flag ? <span class="sendverfic" onTouchStart={this.sendAction.bind(this)}>{this.state.verficVal}</span> : null;
 			
 		return(
 		<div id="me" class="page">
@@ -37,7 +38,7 @@ export default class Me extends Component{
 					<div class="toast">{this.state.toast}</div>
 					
 					<div class="login-bg">
-					<button type="button" class="login" onClick={this.btnAction.bind(this)}>登录</button>
+					<button type="button" class="login" onTouchStart={this.btnAction.bind(this)}>登录</button>
 					</div>
 				</form>
 			</div>
@@ -69,7 +70,8 @@ export default class Me extends Component{
 				toast:'密码不能为空'
 			})
 	   	}else{
-	   		console.log('登录成功')
+	   		console.log('登录成功');
+	   		this.state.history.push('/center')
 	   	}
 		
 	}

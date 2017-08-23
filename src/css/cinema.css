@@ -17,10 +17,107 @@
 	color: #636363;;
 	background: #e1e1e1;
 	border-bottom: 1px solid #fff;
+	overflow: hidden;
 }
 
-#cinema .cinema-content .city-item .hide{
+#cinema .cinema-content .city-item .hide-box{
+	
+}
+
+#cinema .cinema-content .city-item .hide-box.active{
+	display: none;
+}
+
+#cinema .cinema-content .city-item .content{
 	background: #fff;
 	padding:10px 16px;
+	border-bottom: 1px solid #ddd;
+	display: flex;
 }
 
+.city-item .content .left{
+	flex: 1;
+	overflow: hidden;
+}
+
+.city-item .content .left .title{
+	overflow: hidden;
+	height: 28px;
+	display: flex;
+}
+
+.city-item .content .left .title .name{
+	display: block;
+	width: 79%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 16px;
+}
+
+.city-item .content .left .title .zuo{
+	font-size: 10px;
+	display: inline-block;
+	border: 1px solid #fc8558;
+	border-radius: 50%;
+	color: #fc8558;
+	padding:4px 6px;
+	text-align: center;
+	margin-left: 6px;
+}
+
+.city-item .content .left .title .tong{
+	font-size: 10px;
+	display: inline-block;
+	border: 1px solid #88aec8;
+	border-radius: 50%;
+	color: #88aec8;
+	padding:4px 6px;
+	text-align: center;
+	margin-left: 6px;
+}
+
+.city-item .content .left .address{
+	font-size: 12px;
+	color: #ccc;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-top: 8px;
+}
+
+.city-item .content .left .dance{
+	font-size: 12px;
+	color: #ccc;
+	margin-top: 6px;
+}
+
+.city-item .content .left .activity{
+
+}
+
+.city-item .content .left .activity .food{
+	display: inline-block;
+	widows: 66px;
+	font-size: 12px;
+	background: #51add0;
+	color: #fff;
+	padding: 0 4px;
+	margin-right: 6px;
+	border-radius: 4px;
+}
+
+.city-item .content .left .activity .actives{
+	display: inline-block;
+	widows: 66px;
+	font-size: 12px;
+	background: #ff9658;
+	color: #fff;
+	padding: 0 4px;
+	border-radius: 4px;
+}
+
+.city-item .content .right{
+	width: 20%;
+	text-align: right;
+}
