@@ -15,6 +15,7 @@ import HomelistDetails from './views/Home/HomelistDetails.js'
 import NowPlay from './views/Movies/nowPlay.js'
 import SoonPlay from './views/Movies/soonPlay.js'
 import Center from './views/Me/Center.js'
+import ProDetails from './views/Shop/productDetails.js'
 
 
 import './css/app.css'
@@ -45,7 +46,7 @@ export default class App extends Component{
 			
 			<SlideBar />
 				
-			<Route path="/" exact component={Cinema} />
+			<Route path="/" exact component={Home} />
 			<Route path="/list-details" component={HomelistDetails} />
 			
 			<Route path="/movies" component={Movies} />
@@ -54,6 +55,8 @@ export default class App extends Component{
 			
 			<Route path="/cinema" component={Cinema} />
 			<Route path="/shop" component={Shop} />
+			<Route path="/prodetails" component={ProDetails} />
+			
 			<Route path="/me" component={Me} />
 			<Route path="/center" component={Center} />
 			

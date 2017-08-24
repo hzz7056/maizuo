@@ -26,6 +26,15 @@ const CinemalistApi='/v4/api/cinema';
 //请求用户信息
 const CenterInfoApi='../../static/Center/info.json';
 
+//请求商城商品详情页数据
+const ProDetailsApi='/api/item?id=18';
+
+//请求详情列表图片
+const ProDetailsimgApi='/api/item/desc?id=18';
+
+//请求城市列表
+const CitylistDataApi='/v4/api/city';
+
 export default {
 	HomeBannerApi,
 	HomeListApi,
@@ -35,5 +44,8 @@ export default {
 	ShoplistApi,
 	ShopProductApi,
 	CinemalistApi,
-	CenterInfoApi
+	CenterInfoApi,
+	ProDetailsApi,
+	ProDetailsimgApi,
+	CitylistDataApi
 }

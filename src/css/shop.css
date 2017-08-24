@@ -192,3 +192,63 @@
 	color: #999;
 	margin-left: 15px;
 }
+
+
+/*商品详情页*/
+#prodetails{
+	
+}
+#prodetails .detail-content .detail-top .detail-banner .swiper-wrapper .swiper-slide{
+	
+}
+#prodetails .detail-content .detail-top .detail-banner .swiper-wrapper .swiper-slide img{
+	width: 100%;
+	overflow: hidden;
+	float: left;
+}
+
+.pro-con{
+	background: #fff;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.pro-con .name{
+	font-size: 16px;
+}
+
+.pro-con .dec{
+	font-size: 12px;
+	color: #757575;
+	margin-top: 4px;
+}
+
+.pro-con .price{
+	font-size: 18px;
+	color: #ff5000;
+	font-weight: 600;
+	margin-top: 4px;
+}
+
+.pro-con .count{
+	display: flex;
+	margin-top:4px;
+}
+
+.pro-con .count span{
+	font-size: 12px;
+	color: #757575;
+	flex: 1;
+}
+
+.pro-con .count .sell{
+	text-align: center;
+}
+
+.pro-con .count .guo{
+	text-align: right;
+}
+
+.detail-content .select-m{
+	font-size: 14px;
+}
