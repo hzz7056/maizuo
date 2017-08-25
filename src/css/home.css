@@ -1,7 +1,5 @@
 #home{
 	width: 100%;
-	height: 667px;
-	overflow: scroll;
 }
 
 #home .banner{
@@ -13,10 +11,7 @@
 }
 
 #home .home-m{
-	
-	height: 667px;
-	overflow: hidden;
-
+	width: 100%;
 }
 
 #home .home-main{

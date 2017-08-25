@@ -1,11 +1,12 @@
 import React,{Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Route} from 'react-router-dom'
 
 import '../css/movies.css'
 
 import MovieServices from '../services/MovieServices.js'
 import NowPlay from '../views/Movies/nowPlay.js'
 import SoonPlay from '../views/Movies/soonPlay.js'
+let movieScroll;
 
 export default class Movies extends Component{
 	constructor({history}){
@@ -14,52 +15,31 @@ export default class Movies extends Component{
 			navData:['正在热映','即将上映'],
 			seletNav:0,
 			listData:[],
-			history
+			history,
+			show:0
 		}
 		
 	}
 	
 	render(){
 		return(
-		<div id="movies" class="subpage">
-			<div class="movies-con">
+		<div id="movies" class="page">
 			<div class="warp">
+			<div class="movies-con">
 			<div class="movies-select">
 				<nav class="list">
 					{
 						this.state.navData.map((item,index)=>{
-							return <Link to="/now-play" class={index==this.state.seletNav?'active':''} onClick={this.selectAction.bind(this,index)} key={index}>{item}</Link>
+							return <li to="" class={index==this.state.seletNav?'active':''} onClick={this.selectAction.bind(this,index)} key={index}>{item}</li>
 						})
 					}
 				</nav>
 				</div>
-				
-				
-				
-				
-				<div class="movies-main">
-				{
-					this.state.listData.map((item,index)=>{
-						return <div class="item-main" key={index}>
-									<div class="image">
-										<img src={item.poster.thumbnail}/>
-									</div>
-										
-										<div class="content">
-											<div class="title"><span class="title-name">{item.name}</span>  <span class="grade">{item.grade} <i class="iconfont icon-arrow2-right"></i></span></div>
-											<div class="dec"><span>{item.intro}</span></div>
-											<div class="count">
-												<span class="cinema">{item.cinemaCount}家影院上映</span>
-												<span>{item.watchCount}人购票</span>
-											</div>
-										</div>
-									</div>
-					})
-					
-				}
-				</div>
-				
+				 {this.state.show==0?<NowPlay />:''}
+			 	 {this.state.show==1?<SoonPlay />:''}
 			  </div>
+			
+			
 			</div>
 		</div>
 		)
@@ -72,21 +52,33 @@ export default class Movies extends Component{
 			seletNav:index
 		})
 		
-		if (index==0) {
-			console.log(11)
-			//this.state.history.push('/now-play');
-		}
-	}
-	
-	componentWillMount(){
-		MovieServices.getMovieslistData()
-		.then((res)=>{
-			console.log(res);
-			this.setState({
-				listData:res
-			})
+		this.setState({
+			show:index
 		})
 		
 	}
 	
+	
+	
+	componentDidMount() {
+		 movieScroll = new IScroll('#movies',{
+				protoType:3,
+				scrollbars:true,
+				hideScrollbar:false
+			})
+		
+		movieScroll.on('scrollStart',()=>{
+			movieScroll.refresh();
+		})	
+		
+		
+		
+		movieScroll.on('scrollEnd',()=>{
+			var disY=movieScroll.y - movieScroll.maxScrollY;
+			if (disY >= movieScroll.maxScrollY) {
+				console.log('触发了')
+			}
+			
+		})
+	}
 }

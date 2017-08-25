@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 import '../css/cinema.css'
 
 import CinemaServices from '../services/CinemaServices.js'
-
+let contentScroll;
 export default class Cinema extends Component{
 	constructor(){
 		super();
@@ -16,6 +16,7 @@ export default class Cinema extends Component{
 	render(){
 		return(
 		<div id="cinema" class="page">
+			<div class="warp">
 			<div class="cinema-content">
 				{
 				  this.state.cityData.map((item,index)=>{
@@ -53,6 +54,7 @@ export default class Cinema extends Component{
 				  })
 				}
 			</div>
+			</div>
 		</div>
 		)
 	}
@@ -67,6 +69,19 @@ export default class Cinema extends Component{
 			
 		})
 		
+		
+	}
+	
+	
+	componentDidMount() {
+		
+		 contentScroll = new IScroll('#cinema',{
+				protoType:3
+			})
+		
+		contentScroll.on('scrollStart',()=>{
+			contentScroll.refresh();
+		})
 		
 	}
 	

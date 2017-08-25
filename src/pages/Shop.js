@@ -9,6 +9,8 @@ import ShopServices from '../services/ShopServices.js';
 
 let bannerSwiper=null;
 
+let contentScroll;
+
 export default class Shop extends Component{
 	constructor(){
 		super();
@@ -16,6 +18,8 @@ export default class Shop extends Component{
 		this.state={
 			listData:[],
 			activesData:[],
+			actives2Data:[],
+			bannerData:[],
 			activesTitleData:[],
 			prolistData:[]
 		}
@@ -24,15 +28,17 @@ export default class Shop extends Component{
 	render(){
 		return(
 		<div id="shop" class="page">
+			<div class="warp">
 			<div ref="banner" class="swiper-container shop-banner">
 				    <div class="swiper-wrapper">
-				        <div class="swiper-slide">
-				        		<img src={banner1}/>
-				        </div>
+				    {
+				    	this.state.bannerData.map((item,index)=>{
+				    		return <div class="swiper-slide" key={index}>
+				        				<img src={item.imageSrc} />
+				        				</div>
+				    	})
+				    }
 				        
-				          <div class="swiper-slide">
-				        		<img src={banner2}/>
-				        </div>
 				    </div>
 				    
 				    <div class="swiper-pagination"></div>
@@ -65,6 +71,21 @@ export default class Shop extends Component{
 											<img src={item.imageSrc} />
 									   </div>
 							})
+						}
+					</div>
+					
+					<div class="activity2">
+						<div class="act-title">-&nbsp;有品专区&nbsp;-</div>
+						{
+						  this.state.actives2Data.map((item,index)=>{
+						  	return <div class="item" key={index}>
+											<div class="left">
+												<img src={item.imageSrc} />
+											</div>
+																		
+									</div>
+						  })
+							 
 						}
 					</div>
 					
@@ -106,7 +127,6 @@ export default class Shop extends Component{
 				<div class="product-main">
 				<div class="pro-title">-&nbsp;好货精选&nbsp;-</div>
 					<div class="product-con">
-							
 							{
 							  this.state.prolistData.map((item,index)=>{
 							  	return <div class="item even" key={index}>
@@ -132,12 +152,10 @@ export default class Shop extends Component{
 							  })
 							
 							}
-						
-					
 					</div>
 				
 				</div>
-		
+			</div>
 		</div>
 		)
 	}
@@ -146,26 +164,41 @@ export default class Shop extends Component{
 	componentWillMount(){
 		ShopServices.getShoplistData()
 		.then((res)=>{
+			console.log(res)
+			//拆分res(0,8),得到列表数据
 			this.setState({
-				listData:res
+				listData:res.splice(0,8)
 			})
-		})
-		
-		
-		ShopServices.getShopActiveData()
-		.then((res)=>{
+			
+			//拆分res(0,2),得到轮播图数据
 			this.setState({
-				activesData:res
+				bannerData:res.splice(0,2)
 			})
-		})
-		
-		ShopServices.getShopActiveTitleData()
-		.then((res)=>{
-			console.log(res);
+				bannerSwiper.update();
+				bannerSwiper.slideTo(1, 0);
+			
+			//拆分res(2,2),得到前两个活动数据
+			console.log('222',res)
+			this.setState({
+				activesData:res.splice(0,2)
+			})
+			
+			//拆分res(0,3),得到后两个活动数据
+			this.setState({
+				actives2Data:res.splice(0,3)
+			},()=>{
+				console.log(this.state.actives2Data)
+			})
+			
+
+			//剩余的是列表标题数据
 			this.setState({
 				activesTitleData:res
 			})
+			
+			
 		})
+		
 		
 		ShopServices.getShopProductData()
 		.then((res)=>{
@@ -184,6 +217,16 @@ export default class Shop extends Component{
 			autoplay : 3000,
 			pagination: '.swiper-pagination'
 		});
+		
+		
+		
+		contentScroll = new IScroll('#shop',{
+				protoType:3
+			})
+		
+		contentScroll.on('scrollStart',()=>{
+			contentScroll.refresh();
+		})
 	}
 	
 	

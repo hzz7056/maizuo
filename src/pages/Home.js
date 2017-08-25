@@ -143,11 +143,7 @@ export default class Home extends Component {
 				})
 
 		}, 600)
-		//创建滚动视图
-		setTimeout(function(){
-	    	contentScroll.refresh();
-	    },200)
-
+		
 	}
 
 	componentDidMount() {
@@ -156,11 +152,15 @@ export default class Home extends Component {
 			loop: true
 		});
 		
-		 contentScroll = new IScroll('#home .home-m',{
+		 contentScroll = new IScroll('#home',{
 				protoType:3
 			})
-		}
 		
+		contentScroll.on('scrollStart',()=>{
+			contentScroll.refresh();
+		})
+		
+}
 	   
 	goDeatail() {
 		this.state.history.push('/list-details')

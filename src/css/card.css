@@ -1,0 +1,99 @@
+#card{
+	width: 100%;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+
+.card-content{	
+	box-sizing: border-box;
+}
+
+.card-content .nav-select{
+	height: 44px;
+	z-index: 99px;
+	
+}
+
+.card-content .nav-select .list{
+	display: flex;
+	border-bottom: 1px solid #fe6e00;
+}
+
+.card-content .nav-select .list a{
+	flex: 1;
+	display: block;
+	text-align: center;
+	line-height: 44px;
+	margin-bottom: -1px;
+	font-size: 16px;
+}
+
+.card-content .nav-select .list a.active{
+	color: #fe6e00;
+	border-bottom: 4px solid #fe6e00;
+}
+
+
+.card-content form{
+	padding: 0px 31px 0px 31px;
+	box-sizing: border-box;
+	
+}
+
+.card-content form .cardnum{
+	position: relative;
+	box-sizing: border-box;
+	margin-top: 30px;	
+	
+}
+
+.card-content form .cardnum label{
+	float: left;
+	display: inline-block;
+	margin: 0px 10px 0 10px;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+
+.card-content form .cardnum input{
+	width: 80%;
+	border: 0;
+	display: block;
+	height: 30px;
+	padding:6px 12px;
+	box-sizing: border-box;
+	background-color: #fff;
+	outline: none;
+}
+
+.card-content form .cardnum .input-bo{
+	position: absolute;
+    bottom: 0;
+    height: 12px;
+    width: 100%;
+    border: solid #c4c4c4;
+    border-width: 0 1px 1px 1px;
+    box-sizing: border-box;
+}
+
+.card-content form .select-bg{
+	margin: 50px 30px;
+	text-align: center;
+}
+
+.card-content form .select-bg .select{
+	width: 150px;
+	height: 40px;
+	border-radius: 50px;
+	background: #fe8233;
+	color: #fff;
+}
+
+.card-content form .toast{
+	font-size: 12px;
+	color: #fe8233;
+	margin-left: 8px;
+	height: 12px;
+	line-height: 12px;
+}

@@ -65,6 +65,10 @@ body{
 	transform: scale(0.6);
 }
 
+.iScrollIndicator{
+	background: #ccc !important;
+}
+
 
 .slidebar{
 	position: absolute;

@@ -81,13 +81,7 @@ export default class Center extends Component{
 	}
 	
 	componentWillMount(){
-		MovieServices.getCenterInfoData()
-		.then((res)=>{
-			console.log(res);
-			this.setState({
-				infoData:res
-			})
-		})
+		
 		
 	}
 	

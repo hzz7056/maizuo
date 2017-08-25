@@ -19,7 +19,7 @@
 	border-bottom: 1px solid #fe6e00;
 }
 
-#movies .movies-select .list a{
+#movies .movies-select .list li{
 	flex: 1;
 	display: block;
 	text-align: center;
@@ -28,12 +28,15 @@
 	font-size: 16px;
 }
 
-#movies .movies-select .list a.active{
+#movies .movies-select .list li.active{
 	color: #fe6e00;
 	border-bottom: 4px solid #fe6e00;
 }
 
-#movies .movies-main{
+
+
+
+/*#movies .movies-main{
 	margin-top: 6px;
 }
 
@@ -54,6 +57,79 @@
 
 
 #movies .movies-main .item-main img{
+	width: 100%;
+	height: 100%;
+}
+
+.movies-main .item-main .content{
+	width: 70%;
+}
+
+.movies-main .item-main .content .title{
+	margin-top: 4px;
+}
+
+.item-main .content .title .title-name{
+	color: #000;
+} 
+
+.item-main .content .title .grade{
+	color: #fc7103;
+	float: right;
+}
+
+.item-main .content .title .grade .icon-arrow2-right:after{
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	font-size: 8px;
+}
+
+.item-main .content .dec{
+	font-size: 10px;
+	color: #8e8e8e;;
+	margin-top: 10px;
+}
+
+.item-main .content .count{
+	font-size: 10px;
+	color: #8e8e8e;
+	margin-top: 10px;
+}
+
+.item-main .content .count .cinema{
+	margin-right: 20px;
+}
+*/
+
+
+
+
+
+
+/*nowplay部分*/
+
+#nowplay .movies-main{
+	margin-top: 6px;
+}
+
+#nowplay .movies-main .item-main{
+	padding: 18px 0;
+	display: flex;
+}
+
+#nowplay .movies-main .item-main{
+	border-bottom: 1px dashed #ddd;
+}
+
+.movies-main .item-main .image{
+	width: 60px;
+	height: 80px;
+	padding-right: 10px;
+}
+
+
+#nowplay .movies-main .item-main img{
 	width: 100%;
 	height: 100%;
 }
