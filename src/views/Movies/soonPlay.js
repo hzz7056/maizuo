@@ -16,7 +16,7 @@ export default class soonPlay extends Component{
 				<div id="nowplay"> 
 				<div class="movies-main">
 				{
-					this.state.listData.map((item,index)=>{
+					this.props.data.map((item,index)=>{
 						return <div class="item-main" key={index}>
 									<div class="image">
 										<img src={item.poster.thumbnail}/>
@@ -41,16 +41,5 @@ export default class soonPlay extends Component{
 		
 	}
 	
-	
-	componentWillMount(){
-		MovieServices.getMoviesSoonData()
-		.then((res)=>{
-			console.log(res);
-			this.setState({
-				listData:res
-			})
-		})
-		
-	}
 	
 }

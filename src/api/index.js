@@ -9,13 +9,13 @@ const HomeListApi='/v4/api/film/now-playing';
 const HomelistSoonApi='/v4/api/film/coming-soon';
 
 //请求详情页数据
-const HomelistDetailsApi='/v4/api/film/3828';
+const HomelistDetailsApi='/v4/api/film/';
 
 //电影正在上映电影列表
 const MovieslistApi='/v4/api/film/now-playing';
 
 //请求即将上映影院列表
-const MoviesSoonlistApi='/v4/api/film/coming-soon?page=1&count=7';
+const MoviesSoonlistApi='/v4/api/film/coming-soon';
 
 //请求商城列表
 const ShoplistApi='/api/ad/list';
@@ -30,7 +30,7 @@ const CinemalistApi='/v4/api/cinema';
 const CenterInfoApi='../../static/Center/info.json';
 
 //请求商城商品详情页数据
-const ProDetailsApi='/api/item?id=18';
+const ProDetailsApi='/api/item?id=';
 
 //请求详情列表图片
 const ProDetailsimgApi='/api/item/desc?id=18';

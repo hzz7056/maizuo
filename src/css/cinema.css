@@ -20,12 +20,13 @@
 	overflow: hidden;
 }
 
-#cinema .cinema-content .city-item .hide-box{
+#cinema  .city-item .hide-box{
+	display: none;
 	
 }
 
 #cinema .cinema-content .city-item .hide-box.active{
-	display: none;
+	display: block;
 }
 
 #cinema .cinema-content .city-item .content{

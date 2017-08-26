@@ -34,6 +34,7 @@
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-dom": "^15.6.1",
+    "react-lazyload": "^2.2.7",
     "react-router-dom": "^4.1.2",
     "react-swipe": "^5.0.8",
     "swipe-js-iso": "^2.0.3"

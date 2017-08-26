@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import {Link, Route} from 'react-router-dom'
 
 import banner1 from '../img/banner1.jpg';
 import banner2 from '../img/banner2.jpg';
@@ -12,8 +13,10 @@ let bannerSwiper=null;
 let contentScroll;
 
 export default class Shop extends Component{
-	constructor(){
+	constructor(routeProps){
 		super();
+		
+		let {match,history,location} = routeProps;
 		
 		this.state={
 			listData:[],
@@ -21,7 +24,9 @@ export default class Shop extends Component{
 			actives2Data:[],
 			bannerData:[],
 			activesTitleData:[],
-			prolistData:[]
+			prolistData:[],
+			history,
+			location
 		}
 	}
 	
@@ -98,13 +103,13 @@ export default class Shop extends Component{
 											<div class="item-m">
 											{
 												item.products.map((data,index)=>{
-													return 	<div class="item-con" key={index}>
+													return 	<div class="item-con" key={index} onClick={this.proAction1.bind(this,data.id)}>
 																<div class="image">
 																<img src={data.image} />
 															</div>
 																
 																<div class="proname">{data.name}</div>
-																<div class="price">¥{data.price}</div>
+																<div class="price">¥{parseInt(data.price/100)}</div>
 																
 															</div>
 												})
@@ -139,7 +144,7 @@ export default class Shop extends Component{
 							  							
 							  							<div class="proname">{item.masterName}</div>
 							  								<div class="pro-price">
-							  								<span class="price">¥{data.price}</span>
+							  								<span class="price">¥{parseInt(data.price/100)}</span>
 							  								<span class="sellcount">已售{item.displaySalesCount}</span>
 							  							</div>
 							  						</div>
@@ -161,10 +166,21 @@ export default class Shop extends Component{
 	}
 	
 	
+	proAction1(id){
+		console.log(id)
+		
+		this.state.history.push({
+			pathname:'prodetails',
+			state:{
+				id
+			}
+		});
+	}
+	
+	
 	componentWillMount(){
 		ShopServices.getShoplistData()
 		.then((res)=>{
-			console.log(res)
 			//拆分res(0,8),得到列表数据
 			this.setState({
 				listData:res.splice(0,8)
@@ -178,7 +194,6 @@ export default class Shop extends Component{
 				bannerSwiper.slideTo(1, 0);
 			
 			//拆分res(2,2),得到前两个活动数据
-			console.log('222',res)
 			this.setState({
 				activesData:res.splice(0,2)
 			})
@@ -186,8 +201,6 @@ export default class Shop extends Component{
 			//拆分res(0,3),得到后两个活动数据
 			this.setState({
 				actives2Data:res.splice(0,3)
-			},()=>{
-				console.log(this.state.actives2Data)
 			})
 			
 
@@ -195,18 +208,17 @@ export default class Shop extends Component{
 			this.setState({
 				activesTitleData:res
 			})
-			
+			contentScroll.refresh();
 			
 		})
 		
 		
 		ShopServices.getShopProductData()
 		.then((res)=>{
-			console.log(res);
 			this.setState({
 				prolistData:res
 			})
-			
+			contentScroll.refresh();
 		})
 		
 	}

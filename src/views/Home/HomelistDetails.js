@@ -3,11 +3,12 @@ import React,{Component} from 'react'
 import HomeServices from '../../services/HomeServices.js'
 
 export default class HomelistDetails extends Component{
-	 constructor(){
+	 constructor({location}){
 	 	super();
 	 	
 	 	this.state={
-	 		listData:[]
+	 		listData:[],
+	 		location
 	 		
 	 	}
 	 }
@@ -15,12 +16,7 @@ export default class HomelistDetails extends Component{
 	render(){
 		
 		console.log(this.state.listData)
-//		
-//		let actors=this.state.listData.map((item,index)=>{
-//			return <span>{item.actors}</span>
-//			
-//		})
-//		console.log(actors)
+
 		
 		
 		return(
@@ -71,7 +67,7 @@ export default class HomelistDetails extends Component{
 	
 	componentWillMount(){
 		//请求列表详情页数据
-		HomeServices.getHomelistDetailsData()
+		HomeServices.getHomelistDetailsData(this.state.location.state.id)
 			.then((res)=>{
 				console.log(res)
 				if (res) {

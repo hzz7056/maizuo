@@ -29,7 +29,6 @@ function getShopProductData () {
 	return new Promise((resolve,reject)=>{
 		axios.get(API.ShopProductApi)
 		.then((response)=>{
-			console.log(response.data.list);
 			if(response.data.data.list){
 				resolve(response.data.data.list);
 			}
@@ -44,9 +43,9 @@ function getShopProductData () {
 
 
 //请求商城商品详情页数据
-function getProdetailsData () {
+function getProdetailsData (id) {
 	return new Promise((resolve,reject)=>{
-		axios.get(API.ProDetailsApi)
+		axios.get(`${API.ProDetailsApi}${id}`)
 		.then((response)=>{
 			console.log(response.data.data);
 			var item=response.data.data;
@@ -57,7 +56,7 @@ function getProdetailsData () {
 			obj.slaveName=item.slaveName;
 			obj.sell=item.displaySalesCount;
 			obj.prodec=item.skuList[0].images;
-			obj.price=item.skuList[0].price
+			obj.price=parseInt(item.skuList[0].price/100);
 			resolve(obj)
 		})
 		.catch((error)=>{

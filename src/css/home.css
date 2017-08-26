@@ -118,10 +118,13 @@
 /*详情页*/
 #listdetail{
 	width: 100%;
+	
 }
 
 #listdetail .detail-item{
 	width: 100%;
+	height: 100%;
+	position: relative;
 }
 
 #listdetail .detail-item img{
@@ -143,14 +146,15 @@
 }
 
 .detail-item .item-con .info div{
-	font-size: 14px;
+	font-size: 12px;
 	color: #333;
 	margin-bottom: 10px;
 }
 
 #listdetail .pay{
 	width: 100%;
-	padding: 20px 0;
+	position: absolute;
+	bottom: 4%;
 }
 
 #listdetail .pay .pay-btn{

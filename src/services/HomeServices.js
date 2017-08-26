@@ -75,9 +75,9 @@ function getHomelistSoonData () {
 
 
 //请求详情页数据
-function getHomelistDetailsData(){
+function getHomelistDetailsData(id){
 	return new Promise((resolve,reject)=>{
-		axios.get(`${API.HomelistDetailsApi}?__t=${new Date().getTime()}`)
+		axios.get(`${API.HomelistDetailsApi}${id}?__t=${new Date().getTime()}`)
 		.then((response)=>{
 			console.log(response.data.data.film);
 			resolve(response.data.data.film);

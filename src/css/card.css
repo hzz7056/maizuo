@@ -19,7 +19,7 @@
 	border-bottom: 1px solid #fe6e00;
 }
 
-.card-content .nav-select .list a{
+.card-content .nav-select .list li{
 	flex: 1;
 	display: block;
 	text-align: center;
@@ -28,7 +28,7 @@
 	font-size: 16px;
 }
 
-.card-content .nav-select .list a.active{
+.card-content .nav-select .list li.active{
 	color: #fe6e00;
 	border-bottom: 4px solid #fe6e00;
 }
@@ -37,8 +37,8 @@
 .card-content form{
 	padding: 0px 31px 0px 31px;
 	box-sizing: border-box;
-	
 }
+
 
 .card-content form .cardnum{
 	position: relative;

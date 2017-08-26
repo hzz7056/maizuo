@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import LazyLoad from 'react-lazyload';
 import HomeServices from '../services/HomeServices.js'
 
 import '../css/home.css'
@@ -6,12 +7,10 @@ import '../css/home.css'
 let bannerSwiper = null;
 let contentScroll;
 export default class Home extends Component {
-	constructor({
-		history
-	}) {
+	constructor(routeProps) {
 		super();
-
-		console.log(history)
+		
+		let {match,history,location} = routeProps;
 
 		this.state = {
 			bannerData: [],
@@ -32,7 +31,9 @@ export default class Home extends Component {
 				        {
 				        	this.state.bannerData.map((item,index)=>{
 				        		return <div class="swiper-slide" key={index}>
-				        					<img src={item.imgPath} />
+				        		 		
+				        						<img src={item.imgPath} />
+				        					
 				        				</div>
 				        	})
 				        }
@@ -45,8 +46,10 @@ export default class Home extends Component {
 				<div class="home-main">
 					{
 						this.state.listData.map((item,index)=>{
-							return <div class="item" key={index} onClick={this.goDeatail.bind(this)}>
-										<img src={item.imgPath}/>
+							return <div class="item" key={index} onClick={this.goDeatail.bind(this,item.id)}>
+										
+											<img src={item.imgPath}/>
+										
 										
 										<div class="item-con">
 											<div class="left">
@@ -65,7 +68,7 @@ export default class Home extends Component {
 					
 					
 					<div class="more">
-						<button type="button" class="morebtn">更多即将上映电影</button>
+						<button type="button" class="morebtn" onClick={this.NowAction.bind(this)}>更多即将上映电影</button>
 					</div>
 				
 					<div class="line-box">
@@ -76,7 +79,7 @@ export default class Home extends Component {
 					
 					{
 						this.state.listsoonData.map((item,index)=>{
-							return <div class="item" key={index}>
+							return <div class="item" key={index} onClick={this.goDeatail.bind(this,item.id)}s>
 										<img src={item.cover.origin}/>
 										<div class="soon-con">
 											<div class="title">{item.name}</div>
@@ -89,7 +92,7 @@ export default class Home extends Component {
 					
 					
 					<div class="more">
-						<button type="button" class="morebtn">更多即将上映电影</button>
+						<button type="button" class="morebtn" onClick={this.SoonAction.bind(this)}>更多即将上映电影</button>
 					</div>
 				</div>
 				
@@ -162,8 +165,37 @@ export default class Home extends Component {
 		
 }
 	   
-	goDeatail() {
-		this.state.history.push('/list-details')
+	goDeatail(id) {
+		console.log(id)
+		this.state.history.push({
+				pathname:'/list-details',
+				state:{
+					id
+				}
+			})
+	}
+	
+	
+	NowAction(){
+		console.log(11)
+		this.state.history.push({
+			pathname:'/movies',
+			state:{
+				navindex:0
+			}
+		})
+		
+	}
+	
+	
+	SoonAction(){
+		this.state.history.push({
+			pathname:'/movies',
+			state:{
+				navindex:1
+			}
+		});
+		
 	}
 
 }

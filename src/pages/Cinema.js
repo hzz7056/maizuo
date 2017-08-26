@@ -9,26 +9,24 @@ export default class Cinema extends Component{
 		super();
 		this.state={
 			cityData:[],
-			show:false
+			show:0
 		}
 	}
 	
 	render(){
+		
+		
 		return(
 		<div id="cinema" class="page">
 			<div class="warp">
 			<div class="cinema-content">
 				{
 				  this.state.cityData.map((item,index)=>{
-				  	
-				  	var class1 = index !== 0 ? 'active' : '';
-				  	
-				  	console.log(class1)
-				  	
+				  
 				  	return <div class="city-item" key={index}> 
 				  				<div class="city-title" onClick={this.Action.bind(this,index)}>{item.name}</div>
 				  				
-				  				<div className="hide-box" class={class1}>
+				  				<div class={this.state.show==index ? 'hide-box active ' : 'hide-box'}>
 				  				{
 				  				  item.list.map((data,index)=>{
 				  				  	return <div class="content" key={index}>
@@ -89,8 +87,9 @@ export default class Cinema extends Component{
 	Action(index){
 		console.log(index)
 		this.setState({
-			show:!this.state.show
+			show:index
 		})
+		
 	}
 	
 }

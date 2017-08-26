@@ -5,18 +5,19 @@ import ShopServices from '../../services/ShopServices.js'
 let bannerSwiper=null;
 
 export default class productDetails extends Component{
-	constructor(){
+	constructor({history,location}){
 		super();
 		this.state={
 			bannerData:[],
 			content:[],
-			proimg:[]
+			history,
+			location
 		}
 		
 	}
 	
 	render(){
-		let img=this.state.proimg.desc
+		
 		return (
 			<div id="prodetails" class="subpage">
 				<div class="detail-content">
@@ -69,7 +70,8 @@ export default class productDetails extends Component{
 	
 	
 	componentWillMount(){
-		ShopServices.getProdetailsData()
+		console.log(this.state.location)
+		ShopServices.getProdetailsData(this.state.location.state.id)
 		.then((res)=>{
 			console.log(res);
 		
@@ -88,14 +90,6 @@ export default class productDetails extends Component{
 			
 		})
 		
-		ShopServices.getProimgData()
-		.then((res)=>{
-			//console.log(res);
-			
-			this.setState({
-				proimg:res
-			})
-		})
 		
 	}
 	
